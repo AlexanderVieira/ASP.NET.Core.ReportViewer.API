@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="EmployeeReport.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="EmployeeReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ReportDataSet\dsEmployee.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>dsEmployee.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ReportDataSet\dsEmployee.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsEmployee.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
